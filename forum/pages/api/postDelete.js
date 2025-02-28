@@ -20,7 +20,7 @@ export default async function handler(request, result){
       { _id : new ObjectId(postId) },
     );
 
-    result.status(200)
+    result.status(200).json('삭제 완료')
   } catch (e) {
     console.log(`error: ${e}`);
     return result.status(500);
