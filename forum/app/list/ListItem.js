@@ -20,9 +20,8 @@ export default function ListItem({ results }) {
           </Link>
           <button onClick={(e) => {
             console.log('삭제 시도 ' + item._id);
-            fetch('/api/postDelete', {
+            fetch(`/api/postDelete?id=${item._id}`, {
               method: 'DELETE',
-              body: JSON.stringify({ id: item._id }),
             }).then((result) => {
               // 서버 코드에 따른 처리
               if(result.status === 200) {
