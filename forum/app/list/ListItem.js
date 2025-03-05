@@ -2,9 +2,7 @@
 
 import Link from "next/link";
 
-export default function ListItem({ results }) {
-  const items = JSON.parse(results);
-
+export default function ListItem({ items }) {
   if(!Array.isArray(items))
     return;
 
@@ -20,7 +18,7 @@ export default function ListItem({ results }) {
           </Link>
           <button onClick={(e) => {
             console.log('삭제 시도 ' + item._id);
-            fetch(`/api/postDelete?id=${item._id}`, {
+            fetch(`http://localhost:3000/api/postDelete?id=${item._id}`, {
               method: 'DELETE',
             }).then((result) => {
               // 서버 코드에 따른 처리
